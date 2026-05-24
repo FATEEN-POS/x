@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="موقع فاخر لمهندس عقارات وديكور وتشطيبات داخلي وخارجي" />
+  <title>مهندس عقارات وديكور وتشطيبات | تجربة فاخرة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050b12;
+      --bg-2: #0a121d;
+      --surface: rgba(12, 20, 30, 0.82);
+      --surface-strong: #0f1926;
+      --border: rgba(124, 160, 190, 0.18);
+      --text: #e9f3ff;
+      --muted: #9eb2c7;
+      --accent: #00f2fe;
+      --accent-2: #12b2d9;
+      --success: #7ef7c1;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Cairo", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(0, 242, 254, 0.14), transparent 25%),
+        radial-gradient(circle at bottom left, rgba(18, 178, 217, 0.12), transparent 28%),
+        linear-gradient(180deg, #04080d 0%, #08111a 40%, #050b12 100%);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(18, 28, 42, 0.84), rgba(8, 14, 22, 0.76));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid rgba(0, 242, 254, 0.16);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.4px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+
+    .section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .section-header {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      white-space: nowrap;
+      font-weight: 800;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #031015;
+      background: linear-gradient(135deg, var(--accent), #a6ffff);
+      box-shadow: 0 18px 40px rgba(0, 242, 254, 0.24);
+    }
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--border);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(3, 8, 13, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.24), rgba(18, 178, 217, 0.12));
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.18);
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .nav a {
+      color: var(--muted);
+      padding: 9px 14px;
+      border-radius: 999px;
+      transition: 0.22s ease;
+      font-size: 0.95rem;
+    }
+    .nav a:hover, .nav a.active {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .hero {
+      padding: 54px 0 84px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -80px auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.2), transparent 64%);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(2.5rem, 5vw, 4.9rem);
+      line-height: 1.03;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1.03rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .metric {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--accent);
+    }
+    .metric span { color: var(--muted); font-size: 0.92rem; }
+
+    .hero-visual {
+      padding: 20px;
+      border-radius: var(--radius-xl);
+    }
+
+    .visual-card {
+      position: relative;
+      min-height: 560px;
+      border-radius: calc(var(--radius-xl) - 8px);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(3, 10, 16, 0.12), rgba(3, 10, 16, 0.72)),
+        url("https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80") center/cover;
+    }
+
+    .visual-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 26px;
+      border: 1px solid rgba(0, 242, 254, 0.2);
+    }
+
+    .floating {
+      position: absolute;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(9, 16, 25, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .floating.one { top: 28px; right: 28px; }
+    .floating.two { bottom: 112px; right: 28px; }
+    .floating.three { bottom: 28px; left: 28px; }
+    .floating strong { display: block; color: var(--accent); }
+    .floating small { color: var(--muted); }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .stat-card {
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .stat-card strong { display: block; font-size: 1.2rem; }
+    .stat-card span { color: var(--muted); font-size: 0.92rem; }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .filter-btn {
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 999px;
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      color: #041116;
+      background: linear-gradient(135deg, var(--accent), #b7ffff);
+      border-color: transparent;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .portfolio-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .portfolio-item {
+      display: grid;
+    }
+
+    .portfolio-media {
+      position: relative;
+      min-height: 240px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .portfolio-media::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(7, 14, 21, 0.72);
+      border: 1px solid rgba(0, 242, 254, 0.18);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .portfolio-body, .service-body, .testimonial-body, .about-body, .process-step {
+      padding: 20px;
+    }
+
+    .portfolio-body h3, .service-body h3, .testimonial-body h3, .about-body h3, .process-step h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .portfolio-body p, .service-body p, .testimonial-body p, .about-body p, .process-step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .before-after {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-top: 16px;
+      background: #0a111a;
+    }
+
+    .before-after .after, .before-after .before {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .before-after .after {
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .before-after input {
+      position: absolute;
+      inset: auto 16px 16px 16px;
+      width: calc(100% - 32px);
+      accent-color: var(--accent);
+      z-index: 2;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .badge {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: #041116;
+      background: linear-gradient(135deg, var(--accent), #9efbff);
+      margin-bottom: 14px;
+      font-weight: 900;
+    }
+
+    .service-list {
+      margin: 14px 0 0;
+      padding: 0 18px 0 0;
+      color: var(--muted);
+    }
+
+    .service-list li { margin-bottom: 8px; }
+
+    .process-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(0, 242, 254, 0.12);
+      color: var(--accent);
+      font-weight: 900;
+      margin-bottom: 14px;
+      border: 1px solid rgba(0, 242, 254, 0.18);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.94fr 1.06fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .about-visual {
+      border-radius: var(--radius-lg);
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(5, 11, 18, 0.12), rgba(5, 11, 18, 0.88)),
+        url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80") center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-visual .overlay-note {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(6, 11, 18, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .about-visual .overlay-note strong { color: var(--accent); }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .timeline-item strong {
+      color: var(--accent);
+      display: block;
+      min-width: 62px;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .rating {
+      color: #f8d66d;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.94fr 1.06fr;
+      gap: 18px;
+    }
+
+    .contact-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .point {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .field input, .field select, .field textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      background: rgba(5, 10, 16, 0.72);
+      color: var(--text);
+      padding: 14px 16px;
+      outline: none;
+      transition: 0.22s ease;
+    }
+
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: rgba(0, 242, 254, 0.45);
+      box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.08);
+    }
+
+    .field textarea { min-height: 130px; resize: vertical; }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .calc-output {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .estimate {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(0, 242, 254, 0.08), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(0, 242, 254, 0.14);
+    }
+
+    .estimate strong {
+      display: block;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .estimate small, .estimate p { color: var(--muted); margin: 0; }
+
+    .footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hidden { display: none !important; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid, .about-grid, .contact-grid, .calculator-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid, .process-grid, .testimonials-grid, .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav {
+        justify-content: flex-start;
+        overflow: auto;
+        padding-bottom: 4px;
+      }
+      .hero {
+        padding-top: 32px;
+      }
+      .hero-copy, .hero-visual, .card {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .hero-copy, .hero-visual { padding: 16px; }
+      .visual-card { min-height: 400px; }
+      .hero-metrics, .stats-row, .services-grid, .process-grid, .testimonials-grid, .portfolio-grid, .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .section { padding: 72px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#home" aria-label="العودة إلى الصفحة الرئيسية">
+        <span class="brand-mark">◈</span>
+        <span>مهندس عقارات وديكور وتشطيبات</span>
+      </a>
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <a href="#home" class="active">الرئيسية</a>
+        <a href="#portfolio">الأعمال</a>
+        <a href="#services">الخدمات</a>
+        <a href="#process">آلية العمل</a>
+        <a href="#about">من نحن</a>
+        <a href="#testimonials">الآراء</a>
+        <a href="#calculator">الحاسبة</a>
+        <a href="#contact">اتصل بنا</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy glass reveal">
+          <span class="eyebrow">تصميم هندسي فاخر | تنفيذ دقيق | إشراف موثوق</span>
+          <h1>نحوّل المساحات إلى تجربة فخمة تُشبه طموحك.</h1>
+          <p>
+            نقدم حلول العقارات والديكور والتشطيبات الداخلية والخارجية بأسلوب راقٍ يجمع بين الرؤية الهندسية،
+            الالتزام في التنفيذ، واللمسة الجمالية التي ترفع قيمة المكان وتبني الثقة من أول زيارة.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">اطلب استشارة أولية</a>
+            <a class="btn btn-secondary" href="#portfolio">استعرض الأعمال</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric"><strong>+120</strong><span>مشروع تصميم وتنفيذ</span></div>
+            <div class="metric"><strong>4</strong><span>مراحل عمل واضحة</span></div>
+            <div class="metric"><strong>24/7</strong><span>متابعة واستجابة أولية</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual glass reveal">
+          <div class="visual-card">
+            <div class="floating one">
+              <strong>تصور هندسي</strong>
+              <small>قبل التنفيذ - رؤية دقيقة</small>
+            </div>
+            <div class="floating two">
+              <strong>تشطيبات فاخرة</strong>
+              <small>خامات مختارة بعناية</small>
+            </div>
+            <div class="floating three">
+              <strong>إشراف مباشر</strong>
+              <small>جودة تحت السيطرة</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container stats-row reveal">
+        <div class="stat-card"><strong>فهم احتياج العميل</strong><span>تحليل المساحة والهدف والميزانية</span></div>
+        <div class="stat-card"><strong>تجربة بصرية مميزة</strong><span>هوية داكنة أنيقة ولمسات مضيئة</span></div>
+        <div class="stat-card"><strong>تنفيذ منظم</strong><span>خطوات واضحة ومخرجات قابلة للقياس</span></div>
+        <div class="stat-card"><strong>تحويل فعّال</strong><span>دعوات واضحة للاتصال وطلب العرض</span></div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">معرض الأعمال</span>
+          <h2 class="section-title">نماذج أعمال تُثبت الجودة قبل الكلام.</h2>
+          <p class="section-subtitle">يمكن للزائر تصفح المشاريع السكنية والتجارية، مع ميزة قبل وبعد لتوضيح القيمة الفعلية للتصميم والتنفيذ.</p>
+        </div>
+
+        <div class="filters reveal" role="tablist" aria-label="تصفية المشاريع">
+          <button class="filter-btn active" data-filter="all">الكل</button>
+          <button class="filter-btn" data-filter="residential">سكني</button>
+          <button class="filter-btn" data-filter="commercial">تجاري</button>
+          <button class="filter-btn" data-filter="before-after">قبل وبعد</button>
+        </div>
+
+        <div class="grid portfolio-grid" id="portfolioGrid">
+          <article class="card portfolio-item reveal" data-category="residential before-after">
+            <div class="portfolio-media" data-label="سكني | قبل وبعد" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="portfolio-body">
+              <h3>فيلا سكنية - إعادة تشكيل الفخامة</h3>
+              <p>معاينة مقارنة توضح كيف تحولت المساحة من خام إلى تجربة تصميم متكاملة.</p>
+              <div class="badge-row"><span class="badge">تصميم داخلي</span><span class="badge">تشطيب</span><span class="badge">قبل وبعد</span></div>
+            </div>
+          </article>
+          <article class="card portfolio-item reveal" data-category="commercial before-after">
+            <div class="portfolio-media" data-label="تجاري | قبل وبعد" style="background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="portfolio-body">
+              <h3>مكتب أعمال - هوية تجارية راقية</h3>
+              <p>استغلال أفضل للضوء والواجهات لتقديم حضور مهني يعزز الثقة بالعلامة التجارية.</p>
+              <div class="badge-row"><span class="badge">تجاري</span><span class="badge">إشراف</span><span class="badge">هوية</span></div>
+            </div>
+          </article>
+          <article class="card portfolio-item reveal" data-category="residential">
+            <div class="portfolio-media" data-label="سكني" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="portfolio-body">
+              <h3>غرفة معيشة - توازن بين الراحة والرقي</h3>
+              <p>تنسيق بصري يدمج الخامات، الألوان، والإضاءة ضمن لغة واحدة متماسكة.</p>
+              <div class="badge-row"><span class="badge">إضاءة</span><span class="badge">أثاث</span><span class="badge">تفاصيل</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">ميزة قبل وبعد</span>
+          <h2 class="section-title">أداة بصرية بسيطة تُظهر التحول بوضوح.</h2>
+          <p class="section-subtitle">اسحب المؤشر لمقارنة الحالة السابقة مع النتيجة النهائية، لتجسيد القيمة التي تقدمها الخدمة بصورة فورية.</p>
+        </div>
+        <div class="card reveal" style="padding:20px;">
+          <div class="before-after" data-before-after>
+            <div class="before" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="after" data-after-layer style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80'); filter: saturate(1.15) contrast(1.05) brightness(0.98);"></div>
+            <div style="position:absolute;top:16px;right:16px;z-index:3;padding:8px 12px;border-radius:999px;background:rgba(7,14,21,.72);border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.84rem;">قبل</div>
+            <div style="position:absolute;top:16px;left:16px;z-index:3;padding:8px 12px;border-radius:999px;background:rgba(7,14,21,.72);border:1px solid rgba(0,242,254,.18);color:var(--accent);font-size:.84rem;">بعد</div>
+            <input type="range" min="0" max="100" value="50" data-after-slider aria-label="مقارنة قبل وبعد" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">الخدمات</span>
+          <h2 class="section-title">خدمات مصممة لتغطية الرحلة بالكامل من الفكرة إلى التسليم.</h2>
+          <p class="section-subtitle">كل خدمة مدعومة بمخرجات واضحة ونبرة مهنية تساعد العميل على فهم ما سيحصل عليه بالضبط.</p>
+        </div>
+
+        <div class="grid services-grid">
+          <article class="card reveal">
+            <div class="service-body">
+              <div class="service-icon">3D</div>
+              <h3>التصميم ثلاثي الأبعاد</h3>
+              <p>نماذج مرئية دقيقة تحوّل الفكرة إلى تصور واضح قبل البدء، وتقلل قرارات التعديل أثناء التنفيذ.</p>
+              <ul class="service-list">
+                <li>تصور واقعي للمساحات والخامات.</li>
+                <li>اعتماد الاتجاه الجمالي قبل الصرف.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="service-body">
+              <div class="service-icon">IS</div>
+              <h3>الإشراف الهندسي</h3>
+              <p>متابعة مباشرة للموقع لضمان مطابقة التنفيذ للمخططات والجداول الزمنية والمعايير المتفق عليها.</p>
+              <ul class="service-list">
+                <li>تقارير مرحلية ومراجعة جودة.</li>
+                <li>إدارة القرارات الميدانية بحكمة.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="service-body">
+              <div class="service-icon">FN</div>
+              <h3>التشطيب الداخلي والخارجي</h3>
+              <p>تنفيذ متقن للخامات، الألوان، والإضاءة بهدف تقديم نتيجة نهائية راقية ومستدامة.</p>
+              <ul class="service-list">
+                <li>اختيار مواد وخامات مناسبة.</li>
+                <li>تشطيبات تعكس فخامة المكان.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="service-body">
+              <div class="service-icon">EX</div>
+              <h3>الأعمال الخارجية والواجهات</h3>
+              <p>صياغة واجهة متناسقة تعكس قيمة العقار وتمنحه حضورًا معاصرًا من الخارج كما من الداخل.</p>
+              <ul class="service-list">
+                <li>هوية بصرية قوية.</li>
+                <li>حلول واجهات متينة وأنيقة.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">آلية العمل</span>
+          <h2 class="section-title">أربع خطوات واضحة تمنح العميل الطمأنينة من البداية.</h2>
+          <p class="section-subtitle">كل مرحلة تشرح ما الذي يحدث، ومتى ينتقل المشروع للمرحلة التالية، وما القيمة التي يحصل عليها العميل خلالها.</p>
+        </div>
+
+        <div class="grid process-grid">
+          <article class="card reveal">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h3>الاستكشاف والفهم</h3>
+              <p>نبدأ بدراسة المساحة، الهدف، والميزانية لفهم المشكلة الحقيقية قبل تقديم أي اقتراح.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h3>التصميم والتخطيط</h3>
+              <p>نحوّل الرؤية إلى مخطط واضح، واختيارات خامات، وتصورات مرئية يمكن اعتمادها بثقة.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h3>التنفيذ والإشراف</h3>
+              <p>تنفيذ منضبط مع متابعة ميدانية دقيقة لضمان الجودة والالتزام بالنطاق والزمن.</p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h3>التسليم والتحسين</h3>
+              <p>نسلّم المشروع بشكل نهائي ونراجع التفاصيل الأخيرة لضمان أن النتيجة النهائية تعكس الوعد.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">من نحن</span>
+          <h2 class="section-title">فريق يوازن بين الذوق الشخصي، المعرفة الهندسية، والالتزام العملي.</h2>
+          <p class="section-subtitle">تعزيز الجانب الإنساني هنا مهم؛ لأنه يحوّل الخدمة من مجرد تنفيذ إلى علاقة ثقة طويلة المدى.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <div class="overlay-note">
+              <strong>هوية فريقنا</strong>
+              <p>نؤمن أن المشروع الناجح ليس فقط جميلًا، بل واضحًا، منظمًا، وقابلًا للتنفيذ بكفاءة عالية.</p>
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="about-body">
+              <h3>لماذا يختارنا العملاء؟</h3>
+              <p>لأننا لا نبيع صورة فقط؛ نحن نبيع وضوحًا، التزامًا، ومخرجات يمكن قياسها ومتابعتها من أول اجتماع حتى آخر تفصيلة.</p>
+              <div class="timeline" style="margin-top:18px;">
+                <div class="timeline-item"><strong>رؤية</strong><span>نقرأ المساحة باعتبارها فرصة لبناء قيمة معمارية وجمالية.</span></div>
+                <div class="timeline-item"><strong>ثقة</strong><span>نوضح ما سنفعله، كيف، ومتى، قبل بدء أي التزام.</span></div>
+                <div class="timeline-item"><strong>نتيجة</strong><span>نسلّم مشروعًا متناسقًا، أنيقًا، ومطابقًا للتوقعات المتفق عليها.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">آراء العملاء</span>
+          <h2 class="section-title">التقييمات هي الدليل الاجتماعي الأقوى على جودة التجربة.</h2>
+          <p class="section-subtitle">يمكن عرضها كسلايدر أو بطاقات، مع إبراز النتيجة النهائية والشعور العام لدى العميل بعد التسليم.</p>
+        </div>
+
+        <div class="grid testimonials-grid">
+          <article class="card reveal">
+            <div class="testimonial-body">
+              <div class="rating">★★★★★</div>
+              <h3>تنفيذ يليق بالمستوى المطلوب</h3>
+              <p>"من أول اجتماع كان واضحًا أنهم يفهمون ما نحتاجه. النتيجة النهائية جاءت مرتبة وفخمة وأكثر انضباطًا مما توقعنا."</p>
+              <div class="badge-row"><span class="badge">عميل سكني</span><span class="badge">تشطيب داخلي</span></div>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="testimonial-body">
+              <div class="rating">★★★★★</div>
+              <h3>ثقة كاملة في الإشراف</h3>
+              <p>"ما طمأننا هو وضوح آلية العمل والتقارير المرحلية. كل مرحلة كانت تحت متابعة دقيقة، وهذا فرق كثيرًا."</p>
+              <div class="badge-row"><span class="badge">إشراف</span><span class="badge">متابعة</span></div>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="testimonial-body">
+              <div class="rating">★★★★★</div>
+              <h3>هوية تجارية محسوبة</h3>
+              <p>"المكتب أصبح أكثر فخامة واحترافية بصريًا، وبدأنا نلاحظ فرقًا مباشرًا في انطباع العملاء عن المكان."</p>
+              <div class="badge-row"><span class="badge">تجاري</span><span class="badge">واجهة</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">القسم الذكي</span>
+          <h2 class="section-title">حاسبة تكلفة التشطيب المبدئية.</h2>
+          <p class="section-subtitle">أداة تفاعلية تمنح العميل تقديرًا أوليًا يساعده على فهم النطاق المالي قبل طلب الاستشارة التفصيلية.</p>
+        </div>
+
+        <div class="calculator-grid">
+          <div class="card reveal">
+            <div class="service-body">
+              <h3>أدخل بيانات المشروع</h3>
+              <form class="form" id="calcForm">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="area">المساحة بالمتر</label>
+                    <input id="area" type="number" min="20" value="120" />
+                  </div>
+                  <div class="field">
+                    <label for="level">مستوى التشطيب</label>
+                    <select id="level">
+                      <option value="1">اقتصادي</option>
+                      <option value="1.45" selected>متوسط فاخر</option>
+                      <option value="2.1">فاخر</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="type">نوع المشروع</label>
+                    <select id="type">
+                      <option value="0.95">سكني</option>
+                      <option value="1.1" selected>فيلا / شقة فاخرة</option>
+                      <option value="1.25">تجاري</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="location">الموقع</label>
+                    <select id="location">
+                      <option value="1">محلي / قريب</option>
+                      <option value="1.08" selected>داخل المدينة</option>
+                      <option value="1.18">خارج المدينة</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="notes">ملاحظات إضافية</label>
+                  <textarea id="notes" placeholder="مثال: مطلوب تشطيب فاخر مع إضاءة مخفية، رخام، وخدمات إشراف كاملة."></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="calc-output reveal">
+            <div class="estimate">
+              <strong id="estimateValue">—</strong>
+              <small id="estimateRange">التقدير التقريبي سيظهر هنا.</small>
+              <p style="margin-top:12px;">التقدير المبدئي لا يغني عن المعاينة، لكنه يوفّر نقطة بداية واضحة ومهنية للنقاش.</p>
+            </div>
+            <div class="card">
+              <div class="service-body">
+                <h3>ماذا تشمل النتيجة؟</h3>
+                <p>تشمل الحاسبة تكلفة تقريبية تبعًا للمساحة، مستوى التشطيب، ونوع المشروع، مع إمكانية تحويل الرقم إلى استشارة مباشرة عبر النموذج.</p>
+                <div class="badge-row" style="margin-top:16px;">
+                  <span class="badge">تقدير أولي</span>
+                  <span class="badge">قياس سريع</span>
+                  <span class="badge">مؤهل للاتصال</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">اتصل بنا</span>
+          <h2 class="section-title">أرسل بيانات مشروعك وسنحوّلها إلى خطوة عملية.</h2>
+          <p class="section-subtitle">الفورم الذكي يجمع المعلومات الأساسية مثل المساحة والموقع والميزانية لتسهيل المتابعة وتقديم رد أدق.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card reveal">
+            <div class="service-body">
+              <h3>تفاصيل التواصل</h3>
+              <p>يمكن للزائر إدخال كل ما يلزم في نموذج واحد مرتب، مع إحالات واضحة إلى WhatsApp والبريد والهاتف.</p>
+              <div class="contact-points">
+                <div class="point"><strong>الاستجابة الأولية:</strong> خلال 24 ساعة</div>
+                <div class="point"><strong>المعلومات المطلوبة:</strong> المساحة، الموقع، الميزانية، ونوع المشروع</div>
+                <div class="point"><strong>الهدف:</strong> تحويل الاهتمام إلى مشروع فعلي</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="service-body">
+              <h3>نموذج مشروع ذكي</h3>
+              <form class="form" id="contactForm">
+                <div class="form-grid">
+                  <div class="field"><label>الاسم</label><input type="text" placeholder="اسم العميل" /></div>
+                  <div class="field"><label>رقم الهاتف</label><input type="tel" placeholder="05xxxxxxxx" /></div>
+                  <div class="field"><label>البريد الإلكتروني</label><input type="email" placeholder="name@example.com" /></div>
+                  <div class="field"><label>نوع المشروع</label><select><option>سكني</option><option>تجاري</option><option>تشطيب كامل</option></select></div>
+                  <div class="field"><label>المساحة بالمتر</label><input type="number" placeholder="120" /></div>
+                  <div class="field"><label>الموقع</label><input type="text" placeholder="المدينة / الحي" /></div>
+                  <div class="field"><label>الميزانية التقريبية</label><input type="text" placeholder="مثال: 250,000" /></div>
+                  <div class="field"><label>موعد التنفيذ</label><input type="text" placeholder="خلال شهرين" /></div>
+                </div>
+                <div class="field">
+                  <label>وصف مختصر للمشروع</label>
+                  <textarea placeholder="اكتب فكرة المشروع أو احتياجك الرئيسي..."></textarea>
+                </div>
+                <div class="hero-actions" style="margin-bottom:0;">
+                  <button class="btn btn-primary" type="submit">إرسال الطلب</button>
+                  <a class="btn btn-secondary" href="#calculator">احسب التكلفة أولًا</a>
+                </div>
+                <p id="formStatus" style="margin:0;color:var(--muted);"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color:var(--text);">مهندس عقارات وديكور وتشطيبات</strong>
+        <div>هيكل موقع فاخر قابل للتنفيذ مباشرة بواسطة فريق التطوير.</div>
+      </div>
+      <div>Dark Elegant Theme | Accent: #00f2fe</div>
+    </div>
+  </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+
+        portfolioItems.forEach((item) => {
+          const categories = item.dataset.category || '';
+          const show = filter === 'all' || categories.includes(filter);
+          item.classList.toggle('hidden', !show);
+        });
+      });
+    });
+
+    document.querySelectorAll('[data-after-slider]').forEach((slider) => {
+      const wrapper = slider.closest('[data-before-after]');
+      const afterLayer = wrapper.querySelector('[data-after-layer]');
+      const update = () => {
+        afterLayer.style.clipPath = `inset(0 0 0 ${slider.value}%)`;
+      };
+      slider.addEventListener('input', update);
+      update();
+    });
+
+    const area = document.getElementById('area');
+    const level = document.getElementById('level');
+    const type = document.getElementById('type');
+    const locationSelect = document.getElementById('location');
+    const estimateValue = document.getElementById('estimateValue');
+    const estimateRange = document.getElementById('estimateRange');
+
+    function formatCurrency(value) {
+      return new Intl.NumberFormat('ar-EG', { maximumFractionDigits: 0 }).format(value) + ' ر.س';
+    }
+
+    function calculateEstimate() {
+      const areaValue = Math.max(Number(area.value || 0), 20);
+      const factor = Number(level.value) * Number(type.value) * Number(locationSelect.value);
+      const basePerM2 = 1350;
+      const estimate = areaValue * basePerM2 * factor;
+      const min = estimate * 0.85;
+      const max = estimate * 1.18;
+      estimateValue.textContent = formatCurrency(estimate);
+      estimateRange.textContent = `النطاق التقريبي: ${formatCurrency(min)} - ${formatCurrency(max)}`;
+    }
+
+    [area, level, type, locationSelect].forEach((input) => input.addEventListener('input', calculateEstimate));
+    calculateEstimate();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const navLinks = document.querySelectorAll('.nav a');
+    const sections = [...document.querySelectorAll('main section[id]')];
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, { threshold: 0.45 });
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      formStatus.textContent = 'تم استلام بياناتك مبدئيًا. سنعود إليك بخطوة تالية مناسبة.';
+      formStatus.style.color = 'var(--success)';
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
